@@ -3,12 +3,8 @@
   --author: "JesseJesse.com";
   --contact: "Jesse@JesseJesse.com";
   --description: "Toast Playground";
-  --keywords: "toast, notification, snackbar, animation, css effects, frosted glass, UI showcase, frontend demo, javascript, css, codepen";
-  --last-modified: "2025-05-13";
   --content-language: "en";
-  --generator: "HTML5, CSS3, JavaScript, Font Awesome, Google Fonts";
 }
-
 
 body {
   font-family: "Rubik", sans-serif;
@@ -198,7 +194,6 @@ h3 {
   box-shadow: 0 0 12px rgba(210, 180, 140, 0.25), 0 0 18px rgba(210, 180, 140, 0.15);
 }
 
-
 @keyframes slide {
   0% {
     opacity: 0;
@@ -272,32 +267,39 @@ h3 {
   }
 }
 
+/* Updated footer link with fixed bottom underline and mobile improvements */
 .footer-link {
   position: fixed;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Rubik", sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: white;
   cursor: pointer;
   text-decoration: none;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   user-select: none;
   overflow: visible;
+ 
+  position: fixed;
+
 }
 
 .footer-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -5px;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background: #d2a679;
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(6px);
   transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 2px;
 }
 
 .footer-link:hover::after,
@@ -305,3 +307,18 @@ h3 {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+@media (max-width: 480px) {
+  .footer-link {
+    font-size: 1.4rem;
+    padding: 1rem 0;
+    bottom: 1.5rem;
+  }
+  .footer-link::after {
+    height: 4px;
+    bottom: -6px;
+    transform: translateY(8px);
+  }
+}
+
