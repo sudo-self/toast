@@ -8,16 +8,6 @@
   --content-language: "en";
   --generator: "HTML5, CSS3, JavaScript, Font Awesome, Google Fonts";
 }
-:root {
-  --title: "Toast";
-  --author: "JesseJesse.com";
-  --contact: "Jesse@JesseJesse.com";
-  --description: "Toast Playground";
-  --keywords: "toast, notification, snackbar, animation, css effects, frosted glass, UI showcase, frontend demo, javascript, css, codepen";
-  --last-modified: "2025-05-13";
-  --content-language: "en";
-  --generator: "HTML5, CSS3, JavaScript, Font Awesome, Google Fonts";
-}
 
 body {
   font-family: "Rubik", sans-serif;
@@ -32,14 +22,31 @@ body {
   margin: auto;
 }
 
+a.no-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
 .header-image {
   width: 100%;
-  max-width: 640px;
+  max-width: 100%;
   margin: 0 auto 1.5rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stack image and model vertically */
   align-items: center;
+  justify-content: center;
 }
+
+model-viewer {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin-top: 1rem;
+}
+
 
 .header-image img {
   width: 100%;
@@ -279,50 +286,6 @@ h3 {
     opacity: 1;
   }
 }
-
-/* Updated footer link with fixed bottom underline and mobile improvements */
-.footer-link {
-  position: fixed;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Rubik", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0.75rem 0;
-  user-select: none;
-  overflow: visible;
-  /* relative positioning to contain ::after */
-  position: fixed;
-  /* ensure relative for ::after - fixed positioning so use relative on wrapper? We'll add a wrapper if needed */
-}
-
-/* Since footer-link is fixed, for ::after position absolute relative to footer-link itself */
-.footer-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 3px;
-  background: #d2a679;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  border-radius: 2px;
-}
-
-.footer-link:hover::after,
-.footer-link:focus::after {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Responsive adjustments for smaller devices */
 @media (max-width: 480px) {
   .footer-link {
     font-size: 1.4rem;
