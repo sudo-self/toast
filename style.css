@@ -3,7 +3,20 @@
   --author: "JesseJesse.com";
   --contact: "Jesse@JesseJesse.com";
   --description: "Toast Playground";
+  --keywords: "toast, notification, snackbar, animation, css effects, frosted glass, UI showcase, frontend demo, javascript, css, codepen";
+  --last-modified: "2025-05-13";
   --content-language: "en";
+  --generator: "HTML5, CSS3, JavaScript, Font Awesome, Google Fonts";
+}
+:root {
+  --title: "Toast";
+  --author: "JesseJesse.com";
+  --contact: "Jesse@JesseJesse.com";
+  --description: "Toast Playground";
+  --keywords: "toast, notification, snackbar, animation, css effects, frosted glass, UI showcase, frontend demo, javascript, css, codepen";
+  --last-modified: "2025-05-13";
+  --content-language: "en";
+  --generator: "HTML5, CSS3, JavaScript, Font Awesome, Google Fonts";
 }
 
 body {
@@ -267,6 +280,7 @@ h3 {
   }
 }
 
+/* Updated footer link with fixed bottom underline and mobile improvements */
 .footer-link {
   position: fixed;
   bottom: 1rem;
@@ -282,11 +296,12 @@ h3 {
   padding: 0.75rem 0;
   user-select: none;
   overflow: visible;
- 
+  /* relative positioning to contain ::after */
   position: fixed;
-
+  /* ensure relative for ::after - fixed positioning so use relative on wrapper? We'll add a wrapper if needed */
 }
 
+/* Since footer-link is fixed, for ::after position absolute relative to footer-link itself */
 .footer-link::after {
   content: "";
   position: absolute;
@@ -307,7 +322,7 @@ h3 {
   transform: translateY(0);
 }
 
-
+/* Responsive adjustments for smaller devices */
 @media (max-width: 480px) {
   .footer-link {
     font-size: 1.4rem;
@@ -320,11 +335,3 @@ h3 {
     transform: translateY(8px);
   }
 }
-img[src$=".gif"] {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  animation: none !important;
-}
-
-
