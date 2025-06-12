@@ -299,3 +299,20 @@ h3 {
     transform: translateY(8px);
   }
 }
+
+.builder-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.builder-form input[type="text"],
+.builder-form input[type="number"] {
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}

@@ -33,6 +33,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/toaster-ui@1.1.5/dist/main.js"></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </head>
   <body>
@@ -51,7 +52,7 @@
       <center><button id="export-btn" class="modern-btn"><i class="fa-solid fa-bread-slice"></i>Pop Toast</button></center>
 
       <div class="section">
-        <h3><a href="https://toasted-notify.vercel.app" class="no-style"><i class="fa-solid fa-bread-slice"></i>&nbsp;Type</a></h3>
+        <h3><a href="https://toasted-notify.vercel.app" class="no-style"><i class="fa-solid fa-bread-slice"></i>&nbsp;Style</a></h3>
         <div class="grid" id="theme-buttons">
           <button data-theme="arcade" class="modern-btn">
             <i class="fa-solid fa-gamepad"></i> Arcade
@@ -72,7 +73,7 @@
       </div>
 
       <div class="section">
-          <h3><a href="https://github.com/sudo-self/toast" class="no-style"><i class="fa-brands fa-github"></i>&nbsp;Github</a></h3>
+          <h3><a href="https://github.com/sudo-self/toast" class="no-style"><i class="fa-solid fa-jar"></i>&nbsp;Animation</a></h3>
 
         <div class="grid" id="animation-buttons">
           <button data-animation="slide" class="modern-btn">
@@ -94,12 +95,38 @@
       </div>
 
       <div class="btn-wrap">
+          <div id="toast-container"></div>
         <button class="launch-btn" onclick="showToast()">
           <i class="fa-solid fa-bread-slice"></i> Toast Notify
         </button>
       </div>
+      <div class="section">
+        <h3><i class="fa-solid fa-hammer"></i>&nbsp;&lt;code&gt;</h3>
+        <div class="builder-form">
+          <label>
+            Message:<br>
+            <input type="text" id="toast-message" placeholder="Enter toast message" />
+          </label>
 
-      <div id="toast-container"></div>
+          <label>
+            Duration (ms):<br>
+            <input type="number" id="toast-duration" value="7000" min="1000" />
+          </label>
+
+          <label>
+            <input type="checkbox" id="toast-html" />
+            Allow HTML
+
+          </label>
+
+          <label>
+            <input type="checkbox" id="toast-auto-close" checked />
+            Auto Close
+          </label>
+        </div>
+      </div>
+
+   
     </div>
     
 

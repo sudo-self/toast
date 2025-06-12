@@ -47,6 +47,12 @@ function capitalize(str) {
 function showToast() {
   const container = document.getElementById("toast-container");
 
+  // 🔥 Read user-defined values
+  const userMessage = document.getElementById("toast-message").value;
+  const userDuration = parseInt(document.getElementById("toast-duration").value, 10) || 7000;
+  const allowHtml = document.getElementById("toast-html").checked;
+  const autoClose = document.getElementById("toast-auto-close").checked;
+
   const wrapper = document.createElement("div");
   wrapper.className = `toast-wrapper ${toastPosition}`;
 
@@ -57,9 +63,11 @@ function showToast() {
   icon.className = `fa-solid ${themeIcons[selectedTheme] || "fa-bread-slice"}`;
 
   const text = document.createElement("span");
-  text.textContent = `This is a ${capitalize(
-    selectedTheme,
-  )} toast in ${capitalize(selectedAnimation)} style.`;
+  if (allowHtml) {
+    text.innerHTML = userMessage || `This is a <strong>${capitalize(selectedTheme)}</strong> toast in <em>${capitalize(selectedAnimation)}</em> style.`;
+  } else {
+    text.textContent = userMessage || `This is a ${capitalize(selectedTheme)} toast in ${capitalize(selectedAnimation)} style.`;
+  }
 
   const glow = document.createElement("div");
   glow.className = "toast-glow";
@@ -95,8 +103,11 @@ function showToast() {
   toast.style.animationTimingFunction = easing;
   toast.style.animationFillMode = "both";
 
-  setTimeout(() => wrapper.remove(), 7000);
+  if (autoClose) {
+    setTimeout(() => wrapper.remove(), userDuration);
+  }
 }
+
 
 function exportToast() {
   const iconClass = themeIcons[selectedTheme] || "fa-bread-slice";
