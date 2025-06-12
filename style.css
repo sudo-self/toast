@@ -34,7 +34,7 @@ a.no-style {
   max-width: 100%;
   margin: 0 auto 1.5rem;
   display: flex;
-  flex-direction: column; /* Stack image and model vertically */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
 }
@@ -137,7 +137,7 @@ h3 {
 
 #toast-container {
   position: fixed;
-  top: 1.5rem;         /* changed from bottom */
+  top: 1.5rem;
   right: 1.5rem;
   z-index: 9999;
   display: flex;
@@ -191,7 +191,7 @@ h3 {
   color: #eee;
 }
 
-.brutalist {
+.localtoast {
   background: #fff;
   color: #000;
   font-family: monospace;
