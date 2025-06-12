@@ -128,7 +128,36 @@ function exportToast() {
   <meta charset="UTF-8" />
   <title>Exported Toast</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background: #121212;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 90%;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+
     .toast-wrapper {
       position: fixed;
       z-index: 9999;
@@ -143,18 +172,19 @@ function exportToast() {
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
     .toast {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 16px 20px;
       border-radius: 8px;
-      font-family: sans-serif;
       background: #222;
       color: white;
       position: relative;
       animation: ${animationName} 0.6s ${easing} both;
     }
+
     .toast-glow {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -162,6 +192,7 @@ function exportToast() {
       border-radius: inherit;
       background: ${glowStyle};
     }
+
     @keyframes slide {
       from { transform: translateY(-20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -179,24 +210,31 @@ function exportToast() {
       from { transform: scale(0.5); opacity: 0.5; backdrop-filter: blur(4px); }
       to { transform: scale(1); opacity: 1; backdrop-filter: blur(10px); }
     }
+
     .${selectedTheme} {}
-
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* X axis */
-    align-items: center;     /* Y axis */
-  }
-
-  h1 {
-    font-family: sans-serif;
-    font-size: 3rem;
-  }
-</style>
+  </style>
 </head>
 <body>
-<h1>toasted-notify.vercel.app</h1>
+<model-viewer
+  src="https://pub-c1de1cb456e74d6bbbee111ba9e6c757.r2.dev/toast.glb"
+  alt="3D Toast"
+  camera-controls
+  auto-rotate
+  interaction-prompt="click"
+  style="width: 250px; height: 250px; cursor: pointer;"
+></model-viewer>
+
+
+  <h1>toasted-notify.vercel.app</h1>
+
+  <pre><code>&lt;div class="toast-wrapper ${toastPosition}"&gt;
+  &lt;div class="toast ${selectedTheme}"&gt;
+    &lt;i class="fa-solid ${iconClass}"&gt;&lt;/i&gt;
+    &lt;span&gt;This is a ${capitalize(selectedTheme)} toast in ${capitalize(selectedAnimation)} style.&lt;/span&gt;
+    &lt;div class="toast-glow"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
   <div class="toast-wrapper ${toastPosition}">
     <div class="toast ${selectedTheme}">
       <i class="fa-solid ${iconClass}"></i>
