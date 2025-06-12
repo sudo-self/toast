@@ -2,9 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Toast</title>
+    <title>Toasted Notify</title>
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="title" content="Toasted Notify" />
+    <meta name="description" content="Toast Notifications" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://toasted-notify.vercel.app" />
+    <meta property="og:title" content="Toasted Notify" />
+    <meta property="og:description" content="Toast Notifications" />
+    <meta property="og:image" content="https://toasted-notify.vercel.app/preview.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://toasted-notify.vercel.app" />
+    <meta property="twitter:title" content="Toasted Notify" />
+    <meta property="twitter:description" content="Toast Notifications" />
+    <meta property="twitter:image" content="https://toasted-notify.vercel.app/preview.png" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&amp;display=swap"
@@ -18,17 +33,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </head>
   <body>
     <div class="playground">
       <div class="header-image">
         <img src="./toast.png" alt="Toast Notification Playground" />
-        <button id="export-btn" class="modern-btn">Save Toast</button>
-
+        <model-viewer
+          src="./toast.glb"
+          alt="Save Toast 3D"
+          camera-controls
+          auto-rotate
+          interaction-prompt="click"
+          style="width: 200px; height: 200px; cursor: pointer;"
+          id="export-model"
+        ></model-viewer>
       </div>
+      <center><button id="export-btn" class="modern-btn">Save Toast</button></center>
 
       <div class="section">
-        <h3><i class="fa-solid fa-palette"></i> Theme</h3>
+        <h3><i class="fa-solid fa-bread-slice"></i>&nbsp;Types</h3>
         <div class="grid" id="theme-buttons">
           <button data-theme="arcade" class="modern-btn">
             <i class="fa-solid fa-gamepad"></i> Arcade
@@ -49,7 +73,7 @@
       </div>
 
       <div class="section">
-        <h3><i class="fa-solid fa-bolt"></i> Animation</h3>
+        <h3><i class="fa-solid fa-jar"></i>&nbsp;Jams</h3>
         <div class="grid" id="animation-buttons">
           <button data-animation="slide" class="modern-btn">
             <i class="fa-solid fa-arrow-up"></i> Slide
@@ -71,15 +95,19 @@
 
       <div class="btn-wrap">
         <button class="launch-btn" onclick="showToast()">
-          <i class="fa-solid fa-bread-slice"></i>Toast Notify
+          <i class="fa-solid fa-bread-slice"></i> Toast Notify
         </button>
       </div>
 
       <div id="toast-container"></div>
     </div>
-    <a href="https://toasted-notify.vercel.app" class="footer-link" target="_blank" rel="noopener noreferrer">
-      toasted-notify.vercel.app
-    </a>
+    <a
+      href="https://toasted-notify.vercel.app"
+      class="footer-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      >toasted-notify.vercel.app</a
+    >
 
     <script src="./script.js"></script>
   </body>

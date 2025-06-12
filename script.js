@@ -13,7 +13,9 @@ const themeIcons = {
 document.querySelectorAll("#theme-buttons .modern-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     selectedTheme = btn.getAttribute("data-theme");
-    document.querySelectorAll("#theme-buttons .modern-btn").forEach((b) => b.classList.remove("active"));
+    document
+      .querySelectorAll("#theme-buttons .modern-btn")
+      .forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
   });
 });
@@ -21,7 +23,9 @@ document.querySelectorAll("#theme-buttons .modern-btn").forEach((btn) => {
 document.querySelectorAll("#animation-buttons .modern-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     selectedAnimation = btn.getAttribute("data-animation");
-    document.querySelectorAll("#animation-buttons .modern-btn").forEach((b) => b.classList.remove("active"));
+    document
+      .querySelectorAll("#animation-buttons .modern-btn")
+      .forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
   });
 });
@@ -29,7 +33,9 @@ document.querySelectorAll("#animation-buttons .modern-btn").forEach((btn) => {
 document.querySelectorAll("#position-buttons .modern-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     toastPosition = btn.getAttribute("data-position");
-    document.querySelectorAll("#position-buttons .modern-btn").forEach((b) => b.classList.remove("active"));
+    document
+      .querySelectorAll("#position-buttons .modern-btn")
+      .forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
   });
 });
@@ -51,18 +57,22 @@ function showToast() {
   icon.className = `fa-solid ${themeIcons[selectedTheme] || "fa-bread-slice"}`;
 
   const text = document.createElement("span");
-  text.textContent = `This is a ${capitalize(selectedTheme)} toast in ${capitalize(selectedAnimation)} style.`;
+  text.textContent = `This is a ${capitalize(
+    selectedTheme,
+  )} toast in ${capitalize(selectedAnimation)} style.`;
 
   const glow = document.createElement("div");
   glow.className = "toast-glow";
 
   if (selectedTheme === "neon") {
-    // 🍞 Light brown glow for neon theme
-    glow.style.background = "radial-gradient(circle, rgba(210, 180, 140, 0.3), transparent 70%)";
+    glow.style.background =
+      "radial-gradient(circle, rgba(210, 180, 140, 0.3), transparent 70%)";
   } else if (selectedTheme === "brutalist") {
-    glow.style.background = "radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%)";
+    glow.style.background =
+      "radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%)";
   } else if (selectedTheme === "glass") {
-    glow.style.background = "radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%)";
+    glow.style.background =
+      "radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%)";
   }
 
   toast.appendChild(icon);
@@ -71,9 +81,10 @@ function showToast() {
   wrapper.appendChild(toast);
   container.appendChild(wrapper);
 
-  const easing = selectedAnimation === "bounce"
-    ? "cubic-bezier(0.25, 1.5, 0.5, 1)"
-    : "ease-out";
+  const easing =
+    selectedAnimation === "bounce"
+      ? "cubic-bezier(0.25, 1.5, 0.5, 1)"
+      : "ease-out";
 
   toast.style.animationName =
     selectedTheme === "glass" && selectedAnimation === "zoom"
@@ -87,20 +98,22 @@ function showToast() {
   setTimeout(() => wrapper.remove(), 7000);
 }
 
-document.getElementById("export-btn").addEventListener("click", () => {
+function exportToast() {
   const iconClass = themeIcons[selectedTheme] || "fa-bread-slice";
 
-  const easing = selectedAnimation === "bounce"
-    ? "cubic-bezier(0.25, 1.5, 0.5, 1)"
-    : "ease-out";
+  const easing =
+    selectedAnimation === "bounce"
+      ? "cubic-bezier(0.25, 1.5, 0.5, 1)"
+      : "ease-out";
 
-  const animationName = selectedTheme === "glass" && selectedAnimation === "zoom"
-    ? "zoom-glass"
-    : selectedAnimation;
+  const animationName =
+    selectedTheme === "glass" && selectedAnimation === "zoom"
+      ? "zoom-glass"
+      : selectedAnimation;
 
   const glowStyle = (() => {
     if (selectedTheme === "neon")
-      return "radial-gradient(circle, rgba(210, 180, 140, 0.3), transparent 70%)"; // 👈 Light toast color
+      return "radial-gradient(circle, rgba(210, 180, 140, 0.3), transparent 70%)";
     if (selectedTheme === "brutalist")
       return "radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%)";
     if (selectedTheme === "glass")
@@ -166,12 +179,24 @@ document.getElementById("export-btn").addEventListener("click", () => {
       from { transform: scale(0.5); opacity: 0.5; backdrop-filter: blur(4px); }
       to { transform: scale(1); opacity: 1; backdrop-filter: blur(10px); }
     }
-    .${selectedTheme} {
-      /* Optional theme styles */
-    }
-  </style>
+    .${selectedTheme} {}
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* X axis */
+    align-items: center;     /* Y axis */
+  }
+
+  h1 {
+    font-family: sans-serif;
+    font-size: 3rem;
+  }
+</style>
 </head>
 <body>
+<h1>toasted-notify.vercel.app</h1>
   <div class="toast-wrapper ${toastPosition}">
     <div class="toast ${selectedTheme}">
       <i class="fa-solid ${iconClass}"></i>
@@ -192,4 +217,14 @@ document.getElementById("export-btn").addEventListener("click", () => {
   a.click();
 
   URL.revokeObjectURL(url);
+}
+
+// Bind button and model click to exportToast
+document.getElementById("export-btn").addEventListener("click", exportToast);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const model = document.getElementById("export-model");
+  if (model) {
+    model.addEventListener("click", exportToast);
+  }
 });
