@@ -219,7 +219,7 @@ function exportToast() {
   URL.revokeObjectURL(url);
 }
 
-// Bind button and model click to exportToast
+
 document.getElementById("export-btn").addEventListener("click", exportToast);
 
 document.addEventListener("DOMContentLoaded", () => {
