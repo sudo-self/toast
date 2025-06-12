@@ -17,6 +17,9 @@ body {
   padding: 3rem 2rem;
 }
 
+
+
+
 .playground {
   max-width: 880px;
   margin: auto;
@@ -103,10 +106,21 @@ h3 {
 }
 
 .modern-btn.active {
-  border-color: #0ff;
-  box-shadow: 0 0 8px #0ff;
-  background: #964B00;
+  border-color: rgba(255, 255, 240, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 240, 0.4);
+  background: #a67c52;
+  color: white;
 }
+
+body.theme-butter .modern-btn.active {
+  border-color: rgba(255, 255, 240, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 240, 0.3);
+}
+body.theme-neon .modern-btn.active {
+  border-color: tan;
+  box-shadow: 0 0 12px rgba(210, 180, 140, 0.3);
+}
+
 
 .btn-wrap {
   display: flex;
@@ -174,7 +188,7 @@ h3 {
   position: absolute;
   inset: -20px;
   border-radius: 20px;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 240, 0.25), transparent 70%);
   pointer-events: none;
   filter: blur(16px);
   z-index: -1;
