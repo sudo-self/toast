@@ -5,7 +5,7 @@ let toastPosition = "bottom-right";
 const themeIcons = {
   arcade: "fa-gamepad",
   professional: "fa-briefcase",
-  brutalist: "fa-cube",
+  localtoast: "fa-cube",
   glass: "fa-wine-glass",
   neon: "fa-bolt-lightning",
 };
@@ -67,7 +67,7 @@ function showToast() {
   if (selectedTheme === "neon") {
     glow.style.background =
       "radial-gradient(circle, rgba(210, 180, 140, 0.3), transparent 70%)";
-  } else if (selectedTheme === "brutalist") {
+  } else if (selectedTheme === "localtoast") {
     glow.style.background =
       "radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%)";
   } else if (selectedTheme === "glass") {
@@ -114,7 +114,7 @@ function exportToast() {
   const glowStyle = (() => {
     if (selectedTheme === "neon")
       return "radial-gradient(circle, rgba(210, 180, 140, 0.3), transparent 70%)";
-    if (selectedTheme === "brutalist")
+    if (selectedTheme === "localtoast")
       return "radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%)";
     if (selectedTheme === "glass")
       return "radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%)";
