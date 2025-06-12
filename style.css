@@ -271,3 +271,37 @@ h3 {
     opacity: 1;
   }
 }
+
+.footer-link {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  user-select: none;
+  overflow: visible;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #d2a679;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-link:hover::after,
+.footer-link:focus::after {
+  opacity: 1;
+  transform: translateY(0);
+}
