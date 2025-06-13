@@ -13,12 +13,18 @@
     <meta property="og:url" content="https://toasted-notify.vercel.app" />
     <meta property="og:title" content="Toasted Notify" />
     <meta property="og:description" content="Toast Notifications" />
-    <meta property="og:image" content="https://toasted-notify.vercel.app/preview.png" />
+    <meta
+      property="og:image"
+      content="https://toasted-notify.vercel.app/preview.png"
+    />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://toasted-notify.vercel.app" />
     <meta property="twitter:title" content="Toasted Notify" />
     <meta property="twitter:description" content="Toast Notifications" />
-    <meta property="twitter:image" content="https://toasted-notify.vercel.app/preview.png" />
+    <meta
+      property="twitter:image"
+      content="https://toasted-notify.vercel.app/preview.png"
+    />
 
     <link
       rel="stylesheet"
@@ -34,7 +40,10 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <script src="https://unpkg.com/toaster-ui@1.1.5/dist/main.js"></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
   </head>
   <body>
     <div class="playground">
@@ -46,13 +55,21 @@
           camera-controls
           auto-rotate
           interaction-prompt="click"
-          style="width: 250px; height: 250px; cursor: pointer;"
+          style="width: 250px; height: 250px; cursor: pointer"
         ></model-viewer>
       </div>
-      <center><button id="export-btn" class="modern-btn"><i class="fa-solid fa-bread-slice"></i>Pop Toast</button></center>
+      <center>
+        <button id="export-btn" class="modern-btn">
+          <i class="fa-solid fa-bread-slice"></i>Pop Toast
+        </button>
+      </center>
 
       <div class="section">
-        <h3><a href="https://toasted-notify.vercel.app" class="no-style"><i class="fa-solid fa-code"></i>&nbsp;Style</a></h3>
+        <h3>
+          <a href="https://toasted-notify.vercel.app" class="no-style"
+            ><i class="fa-solid fa-code"></i>&nbsp;Style</a
+          >
+        </h3>
         <div class="grid" id="theme-buttons">
           <button data-theme="arcade" class="modern-btn">
             <i class="fa-solid fa-gamepad"></i> Arcade
@@ -73,7 +90,11 @@
       </div>
 
       <div class="section">
-          <h3><a href="https://github.com/sudo-self/toast" class="no-style"><i class="fa-solid fa-jar"></i>&nbsp;ANIMATE</a></h3>
+        <h3>
+          <a href="https://github.com/sudo-self/toast" class="no-style"
+            ><i class="fa-solid fa-jar"></i>&nbsp;ANIMATE</a
+          >
+        </h3>
 
         <div class="grid" id="animation-buttons">
           <button data-animation="slide" class="modern-btn">
@@ -95,7 +116,7 @@
       </div>
 
       <div class="btn-wrap">
-          <div id="toast-container"></div>
+        <div id="toast-container"></div>
         <button class="launch-btn" onclick="showToast()">
           <i class="fa-solid fa-bread-slice"></i> Toast Notify
         </button>
@@ -104,19 +125,22 @@
         <h3><i class="fa-solid fa-hammer"></i> BUILDER</h3>
         <div class="builder-form">
           <label>
-            Message<br>
-            <input type="text" id="toast-message" placeholder="Enter toast message" />
+            Message<br />
+            <input
+              type="text"
+              id="toast-message"
+              placeholder="Enter toast message"
+            />
           </label>
 
           <label>
-            Duration (ms)<br>
+            Duration (ms)<br />
             <input type="number" id="toast-duration" value="7000" min="1000" />
           </label>
 
           <label>
             <input type="checkbox" id="toast-html" />
             Allow HTML
-
           </label>
 
           <label>
@@ -125,14 +149,11 @@
           </label>
         </div>
       </div>
-      <div><i class="fa-solid fa-bread-slice"></i> addToast&#40;&nbsp;&#41;
-          <p style="color:yellow">toaster.addToast(&quot;This is a toast&quot;);
-</p>
-
-</div>
-   
+      <div style="color: yellow">
+        <i class="fa-solid fa-bread-slice"></i> addToast&#40;&nbsp;&#41;
+        <p style="color: yellow">toaster.addToast(&quot;Hello!&quot;);</p>
+      </div>
     </div>
-    
 
     <script src="./script.js"></script>
   </body>
